@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using(Html.BeginForm("About","Home",FormMethod.Post,new { enctype = "multipart/form-data",id="updata" }))
+{
+    <input type="file"  name="file"/>
+    <input type="submit" value="匯入" />
+   @Html.ActionLink("匯出","Download")
+
+}
+

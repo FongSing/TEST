@@ -1,0 +1,8 @@
+﻿@model IEnumerable<WebApplication7.Models.test1>
+@{
+    ViewBag.Title = "About";
+}
+@foreach (var m in Model)
+{
+    <div><span>@m.account</span><span>@m.birth</span><span>@m.sex</span></div>
+}
