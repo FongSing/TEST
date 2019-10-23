@@ -1,0 +1,256 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section styles{
+    <style>
+        h2 {
+            color: #9d9d9d;
+            transform: scaleY(0.8);
+        }
+
+        .div1 {
+            font-weight: 700;
+            color: #c4b895
+        }
+
+        .div2 {
+            font-weight: 500
+        }
+
+        table {
+            margin-top: 50px;
+        }
+
+        tbody > tr > th {
+            color: #fff;
+            background-color: #beb18b
+        }
+
+        tbody td {
+            font-weight: 500;
+        }
+
+        tbody {
+            border-bottom: 3px solid #beb18b;
+            border-top: 3px solid #beb18b;
+            border-right: 1px solid #CCC;
+        }
+
+        .table > thead th {
+            border-top: 0;
+        }
+
+        tbody > tr:nth-child(2) td {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        tbody > tr > td:nth-child(3) {
+            background-color: #f6f2e6;
+        }
+
+        tbody > tr:nth-child(2) > td:nth-child(2) {
+            color: #75b69a
+        }
+
+        tbody > tr:nth-child(2) > td:nth-child(3) {
+            color: #6295b9
+        }
+
+        tbody > tr:nth-child(2) > td:nth-child(4) {
+            color: #b94352
+        }
+
+        tbody > tr:nth-child(3) > td:nth-child(2) > span, tbody > tr:nth-child(3) > td:nth-child(3) > span {
+            color: #75b69a;
+            font-size: 10px;
+        }
+
+        tbody > tr:nth-child(3) > td:nth-child(4) > span {
+            color: #b94352;
+            font-size: 10px;
+        }
+
+        div.row.p-4 {
+            background-color: #e6e7e8
+        }
+
+            div.row.p-4 > div:nth-child(1) > div:nth-child(1) {
+                font-weight: 700;
+                font-size: 20px;
+                color: #848484;
+            }
+
+            div.row.p-4 > div:nth-child(1) > div:nth-child(2) {
+                font-weight: 500;
+                font-size: 16px;
+                color: #848484;
+            }
+
+            div.row.p-4 > div:nth-child(2) > div:nth-child(1) {
+                font-weight: 700;
+                font-size: 36px;
+                color: #c2b591;
+            }
+
+            div.row.p-4 > div:nth-child(2) > div:nth-child(2) {
+                font-weight: 500;
+                font-size: 16px;
+                color: #c2b591;
+            }
+
+        .img1 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            border: 15px solid #beb18b;
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+        }
+
+        .img2 {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .img3 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 200px;
+            width: 100px;
+            background-color:white;
+            transform:rotate(-30deg);
+            transform-origin:left;
+        }
+        .img2>img{
+            z-index:1;
+            position:absolute;
+            transform:translate(-50%,-50%);
+            left:50%;
+            top:50%;
+        }
+    </style>
+}
+
+<div class="img1">
+    <div class="img2">
+        <img src="~/Image/image[1].png" />
+        <div class="img4">
+            <div class="img5"></div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="img3">
+</div>
+<h2>MARKET TREND ANALYSIS</h2>
+<div class="div1">For the Property Located at:</div>
+<div class="div2">No. 2. Section 2. Jianguo North Road.</div>
+<div class="div2">Zhongshan District. Taopei City</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>5% Below</th>
+            <th>Average Sale Price</th>
+            <th>5% Above</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>List Price</th>
+            <td>21 million yuan</td>
+            <td>22 million yuan</td>
+            <td>23 million yuan</td>
+        </tr>
+        <tr>
+            <th>Days on Markket</th>
+            <td>10 dys</td>
+            <td>30 days</td>
+            <td>45 days</td>
+        </tr>
+        <tr>
+            <th>Sale Price</th>
+            <td>
+                21.5 million yuan(
+                <span>+1%</span>)
+            </td>
+            <td>
+                23 million yuan(
+                <span>+1.5%</span>)
+            </td>
+            <td>
+                22 million yuan(
+                <span>-2%</span>)
+            </td>
+        </tr>
+    </tbody>
+</table>
+<canvas id="canvas"></canvas>
+<div class="p-4 row">
+    <div class="col">
+        <div>Demo Agent</div>
+        <div>952-555-1234</div>
+    </div>
+    <div class="col-5">
+        <div>CENTURY 21.</div>
+        <div>Company Name</div>
+    </div>
+
+</div>
+@Html.ActionLink("123", "GeneratePDF")
+<div id="PDF"><button id="btn">BTN</button><img id="img" /></div>
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+    <script>
+        var lineChartData = {
+            labels: ["10", "22", "30", "48", "55", "65", "70"], //顯示區間名稱
+            datasets: [{
+                label: '罹癌後開始使用',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#29b288",
+                borderColor: "#29b288",
+                borderWidth: 5,
+                data: [-8, -5, -2, -1.5, 2, 2.5, 8],
+            },]
+        };
+        function drawLineCanvas(ctx, data) {
+            window.myLine = new Chart(ctx, {  //先建立一個 chart
+                type: 'line', // 型態
+                data: data,
+                options: {
+                    responsive: true,
+                    legend: { //是否要顯示圖示
+                        display: true,
+                    },
+                    tooltips: { //是否要顯示 tooltip
+                        enabled: true
+                    },
+                    scales: {  //是否要顯示 x、y 軸
+                        xAxes: [{
+                            display: true
+                        }],
+                        yAxes: [{
+                            display: true
+                        }]
+                    },
+                }
+            });
+        };
+        window.onload = function () {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            drawLineCanvas(ctx, lineChartData);
+        };
+        @*$("#btn").click(function () {
+            $("#PDF").load("@Url.Action("PDF")")
+            @*$("#img").attr("src","@Url.Action("DownloadPdf")")
+        })*@
+    </script>
+}
